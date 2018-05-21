@@ -25,12 +25,11 @@ class SpiralMatrix(object):
                 for vector in deques:
                     yield vector.pop()
 
-                if len(deques):
+                if len(deques) and len(deques[0]):
                     for item in reversed(deques.pop()):
                         yield item
 
-                for vector in reversed(deques):
-                    if len(vector):
+                    for vector in reversed(deques):
                         yield vector.popleft()
             else:
                 for vector in deques:
@@ -39,10 +38,9 @@ class SpiralMatrix(object):
                 for item in deques.pop():
                     yield item
 
-                for vector in reversed(deques):
-                    if len(vector):
+                if len(deques) and len(deques[0]):
+                    for vector in reversed(deques):
                         yield vector.pop()
 
-                if len(deques):
                     for item in reversed(deques.popleft()):
                         yield item
