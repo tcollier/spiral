@@ -1,3 +1,7 @@
+Version 0.2.0, 2018-05-20
+-------------------------
+9b2a96f Add counter-clockwise traversals
+
 Version 0.1.0, 2018-05-20
 -------------------------
 0ada2e1 Initial version
