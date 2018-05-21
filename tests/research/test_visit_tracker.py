@@ -1,6 +1,6 @@
 from unittest import TestCase
-from spiral.location import Location
-from spiral.visit_tracker import VisitTracker
+from spiral.research.location import Location
+from spiral.research.visit_tracker import VisitTracker
 
 
 class TestVisitTracker(TestCase):

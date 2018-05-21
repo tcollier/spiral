@@ -1,7 +1,7 @@
 from unittest import TestCase
-from spiral.visitor.recursive_visitor import RecursiveVisitor
-from spiral.traverser import Traverser
-from ..test_traverser import TestTraverser
+from spiral.research.visitor.recursive_visitor import RecursiveVisitor
+from spiral.research.traverser import Traverser
+from tests.research.test_traverser import TestTraverser
 
 
 class TestRecursiveVisitor(TestTraverser.Shared, TestCase):

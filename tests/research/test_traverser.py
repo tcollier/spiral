@@ -1,4 +1,4 @@
-from spiral.traverser import Traverser
+from spiral.research.traverser import Traverser
 
 
 class TestTraverser(object):

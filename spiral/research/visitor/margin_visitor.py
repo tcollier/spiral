@@ -4,8 +4,8 @@ increasing "margin". Each time we traverse one rotation in the spiral, the
 margin on all sides increases by one.
 """
 from math import ceil
-from ..direction import Direction
-from ..location import Location
+from spiral.research.direction import Direction
+from spiral.research.location import Location
 
 
 class MarginVisitor(object):

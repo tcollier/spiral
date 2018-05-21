@@ -1,7 +1,7 @@
 """
 Utility class for managing the direction and rotation of a matrix traversal.
 """
-from .direction import Direction
+from spiral.research.direction import Direction
 
 
 class Compass(object):
