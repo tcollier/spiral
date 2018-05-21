@@ -5,4 +5,4 @@ install:
   - pip install pipenv
   - pipenv install -d
 script:
-  - pytest --cov=spiral
+  - pytest --benchmark-enable --cov=spiral
