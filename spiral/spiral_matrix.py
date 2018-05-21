@@ -19,28 +19,36 @@ class SpiralMatrix(object):
 
         while len(deques) and len(deques[0]):
             if self.__clockwise:
+                # Traverse right on the top of the remaining deque
                 for item in deques.popleft():
                     yield item
 
+                # Traverse down on the right side of the remaining deque
                 for vector in deques:
                     yield vector.pop()
 
                 if len(deques) and len(deques[0]):
+                    # Traverse left on the bottom side of the remaining deque
                     for item in reversed(deques.pop()):
                         yield item
 
+                    # Traverse up on the left side of the remaining deque
                     for vector in reversed(deques):
                         yield vector.popleft()
             else:
+                # Traverse down on the left side of the remaining deque
                 for vector in deques:
                     yield vector.popleft()
 
+                # Traverse right on the bottom of the remaining deque
                 for item in deques.pop():
                     yield item
 
                 if len(deques) and len(deques[0]):
+                    # Traverse up on the right side of the remaining deque
                     for vector in reversed(deques):
                         yield vector.pop()
 
+                    # Traverse left on the top side of the remaining deque
                     for item in reversed(deques.popleft()):
                         yield item

@@ -23,11 +23,17 @@ class DequeVisitor(object):
         :param deques: A deque of deques that is a duplicate of the matrix
         """
         while len(deques) and len(deques[0]):
+            # Traverse right on the top of the remaining deque
             [self.__visit_fn(i) for i in deques.popleft()]
+
+            # Traverse down on the right side of the remaining deque
             [self.__visit_fn(v.pop()) for v in deques]
 
             if len(deques) and len(deques[0]):
+                # Traverse left on the bottom of the remaining deque
                 [self.__visit_fn(i) for i in reversed(deques.pop())]
+
+                # Traverse up on the left side of the remaining deque
                 [self.__visit_fn(v.popleft()) for v in reversed(deques)]
 
     def __ccw(self, deques):
@@ -35,9 +41,15 @@ class DequeVisitor(object):
         :param deques: A deque of deques that is a duplicate of the matrix
         """
         while len(deques) and len(deques[0]):
+            # Traverse down on the left side of the remaining deque
             [self.__visit_fn(v.popleft()) for v in deques]
+
+            # Traverse right on the bottom of the remaining deque
             [self.__visit_fn(i) for i in deques.pop()]
 
             if len(deques) and len(deques[0]):
+                # Traverse up on the right side of the remaining deque
                 [self.__visit_fn(v.pop()) for v in reversed(deques)]
+
+                # Traverse left on the top of the remaining deque
                 [self.__visit_fn(i) for i in reversed(deques.popleft())]
