@@ -25,36 +25,24 @@ class DequeVisitor(object):
         :param deques: A deque of deques that is a duplicate of the matrix
         """
         while len(deques) and len(deques[0]):
-            for item in deques.popleft():
-                self._visit_fn(item)
+            [self._visit_fn(i) for i in deques.popleft()]
+            [self._visit_fn(v.pop()) for v in deques]
 
-            for vector in deques:
-                self._visit_fn(vector.pop())
+            if len(deques) and len(deques[0]):
+                [self._visit_fn(i) for i in reversed(deques.pop())]
+                [self._visit_fn(v.popleft()) for v in reversed(deques)]
 
-            if len(deques):
-                for item in reversed(deques.pop()):
-                    self._visit_fn(item)
-
-            for vector in reversed(deques):
-                if len(vector):
-                    self._visit_fn(vector.popleft())
 
     def __visit_counter_clockwise(self, deques):
         """
         :param deques: A deque of deques that is a duplicate of the matrix
         """
         while len(deques) and len(deques[0]):
-            for vector in deques:
-                self._visit_fn(vector.popleft())
+            [self._visit_fn(v.popleft()) for v in deques]
+            [self._visit_fn(i) for i in deques.pop()]
 
-            for item in deques.pop():
-                self._visit_fn(item)
+            if len(deques) and len(deques[0]):
+                [self._visit_fn(v.pop()) for v in reversed(deques)]
+                [self._visit_fn(i) for i in reversed(deques.popleft())]
 
-            for vector in reversed(deques):
-                if len(vector):
-                    self._visit_fn(vector.pop())
-
-            if len(deques):
-                for item in reversed(deques.popleft()):
-                    self._visit_fn(item)
 
