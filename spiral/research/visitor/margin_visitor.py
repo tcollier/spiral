@@ -5,7 +5,6 @@ margin on all sides increases by one.
 """
 from math import ceil
 from spiral.research.direction import Direction
-from spiral.research.location import Location
 
 
 class MarginVisitor(object):
@@ -17,7 +16,7 @@ class MarginVisitor(object):
         traverse_fn(matrix)
 
     def __cw(self, matrix):
-        location = Location(0, -1)
+        i, j = 0, -1
         smaller_dim = min(len(matrix), len(matrix[0]))
         max_margin = int(ceil(smaller_dim / 2))
 
@@ -25,22 +24,22 @@ class MarginVisitor(object):
             visitable_width = len(matrix[0]) - 2 * margin
             visitable_height = len(matrix) - 2 * margin
 
-            location = self.__visit_line(
-                matrix, location, Direction.RIGHT, visitable_width)
+            i, j = self.__visit_line(
+                matrix, i, j, Direction.RIGHT, visitable_width)
 
-            location = self.__visit_line(
-                matrix, location, Direction.DOWN, visitable_height - 1)
+            i, j = self.__visit_line(
+                matrix, i, j, Direction.DOWN, visitable_height - 1)
 
             if margin < max_margin - 1 or not len(matrix) % 2:
-                location = self.__visit_line(
-                    matrix, location, Direction.LEFT, visitable_width - 1)
+                i, j = self.__visit_line(
+                    matrix, i, j, Direction.LEFT, visitable_width - 1)
 
                 if margin < max_margin - 1 or not len(matrix[0]) % 2:
-                    location = self.__visit_line(
-                        matrix, location, Direction.UP, visitable_height - 2)
+                    i, j = self.__visit_line(
+                        matrix, i, j, Direction.UP, visitable_height - 2)
 
     def __ccw(self, matrix):
-        location = Location(-1, 0)
+        i, j = -1, 0
         smaller_dim = min(len(matrix), len(matrix[0]))
         max_margin = int(ceil(smaller_dim / 2))
 
@@ -48,21 +47,21 @@ class MarginVisitor(object):
             visitable_width = len(matrix[0]) - 2 * margin
             visitable_height = len(matrix) - 2 * margin
 
-            location = self.__visit_line(
-                matrix, location, Direction.DOWN, visitable_height)
+            i, j = self.__visit_line(
+                matrix, i, j, Direction.DOWN, visitable_height)
 
-            location = self.__visit_line(
-                matrix, location, Direction.RIGHT, visitable_width - 1)
+            i, j = self.__visit_line(
+                matrix, i, j, Direction.RIGHT, visitable_width - 1)
 
             if margin < max_margin - 1 or not len(matrix[0]) % 2:
-                location = self.__visit_line(
-                    matrix, location, Direction.UP, visitable_height - 1)
+                i, j = self.__visit_line(
+                    matrix, i, j, Direction.UP, visitable_height - 1)
 
                 if margin < max_margin - 1 or not len(matrix) % 2:
-                    location = self.__visit_line(
-                        matrix, location, Direction.LEFT, visitable_width - 2)
+                    i, j = self.__visit_line(
+                        matrix, i, j, Direction.LEFT, visitable_width - 2)
 
-    def __visit_line(self, matrix, location, direction, num_visits):
+    def __visit_line(self, matrix, i, j, direction, num_visits):
         """
         Visit `num_visits` elements of the matrix in a straight line
         :param matrix: The matrix that is being traversed
@@ -72,7 +71,7 @@ class MarginVisitor(object):
         :return: Location of the last element that is traversed
         """
         for _ in range(num_visits):
-            location = direction(location)
-            self.__visit_fn(matrix[location.i][location.j])
+            i, j = direction(i, j)
+            self.__visit_fn(matrix[i][j])
 
-        return location
+        return [i, j]
