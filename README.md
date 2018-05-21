@@ -2,7 +2,7 @@
 
 # Spiral Matrix Traversal
 
-Iterate over a 2-D matrix in a spiral path, e.g.
+Iterate over a 2-D matrix in a clockwise or counter-clockwise spiral path.
 
 ## Usage
 
@@ -12,7 +12,7 @@ Iterate over a 2-D matrix in a spiral path, e.g.
 pipenv install tcollier-spiral
 ```
 
-### Example
+### Clockwise Example
 
 ```python
 from spiral.spiral_matrix import SpiralMatrix
@@ -34,6 +34,41 @@ for item in matrix:
 # 10
 # 9
 # 5
+# 6
+# 7
+```
+
+### Counter-clockwise Example
+
+```python
+from spiral.spiral_matrix import SpiralMatrix
+
+ccw_matrix = SpiralMatrix([
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12]],
+    clockwise=False)
+
+# Alternatively:
+#
+# cw_matrix = SpiralMatrix([
+#     [1, 2, 3, 4],
+#     [5, 6, 7, 8],
+#     [9, 10, 11, 12]])
+# ccw_matrix = reversed(cw_matrix)
+
+for item in ccw_matrix:
+    print(item)
+# 1
+# 5
+# 9
+# 10
+# 11
+# 12
+# 8
+# 4
+# 3
+# 2
 # 6
 # 7
 ```
