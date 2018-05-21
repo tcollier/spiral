@@ -1,7 +1,7 @@
 from unittest import TestCase
-from spiral.visitor.iterative_visitor import IterativeVisitor
-from spiral.traverser import Traverser
-from ..test_traverser import TestTraverser
+from spiral.research.visitor.iterative_visitor import IterativeVisitor
+from spiral.research.traverser import Traverser
+from tests.research.test_traverser import TestTraverser
 
 
 class TestIterativeVisited(TestTraverser.Shared, TestCase):

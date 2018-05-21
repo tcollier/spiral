@@ -3,10 +3,10 @@ Visit each element of a matrix in a spiral path using a recursive approach.
 This algorithm keeps track of which elements have already been visited to ensure
 that no element is visited twice.
 """
-from ..compass import Compass
-from ..direction import Direction
-from ..location import Location
-from ..visit_tracker import VisitTracker
+from spiral.research.compass import Compass
+from spiral.research.direction import Direction
+from spiral.research.location import Location
+from spiral.research.visit_tracker import VisitTracker
 
 
 class RecursiveVisitor(object):
