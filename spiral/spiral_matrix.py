@@ -18,8 +18,7 @@ class SpiralMatrix(object):
                 yield item
 
             for vector in deques:
-                if len(vector):
-                    yield vector.pop()
+                yield vector.pop()
 
             if len(deques):
                 for item in reversed(deques.pop()):
