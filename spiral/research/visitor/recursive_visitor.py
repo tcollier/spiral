@@ -11,7 +11,7 @@ from spiral.research.visit_tracker import VisitTracker
 
 class RecursiveVisitor(object):
     def __init__(self, visit_fn):
-        self._visit_fn = visit_fn
+        self.__visit_fn = visit_fn
 
     def start(self, matrix, clockwise):
         initial_direction = Direction.RIGHT if clockwise else Direction.DOWN
@@ -22,7 +22,7 @@ class RecursiveVisitor(object):
             visit_tracker=VisitTracker(matrix))
 
     def __visit(self, matrix, compass, clockwise, location, visit_tracker):
-        self._visit_fn(matrix[location.i][location.j])
+        self.__visit_fn(matrix[location.i][location.j])
         visit_tracker.visit(location)
 
         forward_location = compass.direction(location)

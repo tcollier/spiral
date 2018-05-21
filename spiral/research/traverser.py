@@ -6,7 +6,7 @@ function to each element when it is visited.
 
 class Traverser(object):
     def __init__(self, matrix):
-        self._matrix = matrix
+        self.__matrix = matrix
 
     def start(self, visitor, clockwise=True):
         """
@@ -15,7 +15,7 @@ class Traverser(object):
         :param clockwise: If True, then visit each element in a clockwise
         spiral, otherwise visit in a counter-clockwise spiral
         """
-        if not len(self._matrix) or not len(self._matrix[0]):
+        if not len(self.__matrix) or not len(self.__matrix[0]):
             return
 
-        visitor.start(self._matrix, clockwise)
+        visitor.start(self.__matrix, clockwise)

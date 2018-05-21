@@ -10,7 +10,7 @@ from spiral.research.location import Location
 
 class MarginVisitor(object):
     def __init__(self, visit_fn):
-        self._visit_fn = visit_fn
+        self.__visit_fn = visit_fn
 
     def start(self, matrix, clockwise):
         if clockwise:
@@ -75,6 +75,6 @@ class MarginVisitor(object):
         """
         for _ in range(num_visits):
             location = direction(location)
-            self._visit_fn(matrix[location.i][location.j])
+            self.__visit_fn(matrix[location.i][location.j])
 
         return location

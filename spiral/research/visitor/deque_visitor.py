@@ -8,7 +8,7 @@ from collections import deque
 
 class DequeVisitor(object):
     def __init__(self, visit_fn):
-        self._visit_fn = visit_fn
+        self.__visit_fn = visit_fn
 
     def start(self, matrix, clockwise):
         # Create a duplicate of the original matrix using a deque. This allows
@@ -25,12 +25,12 @@ class DequeVisitor(object):
         :param deques: A deque of deques that is a duplicate of the matrix
         """
         while len(deques) and len(deques[0]):
-            [self._visit_fn(i) for i in deques.popleft()]
-            [self._visit_fn(v.pop()) for v in deques]
+            [self.__visit_fn(i) for i in deques.popleft()]
+            [self.__visit_fn(v.pop()) for v in deques]
 
             if len(deques) and len(deques[0]):
-                [self._visit_fn(i) for i in reversed(deques.pop())]
-                [self._visit_fn(v.popleft()) for v in reversed(deques)]
+                [self.__visit_fn(i) for i in reversed(deques.pop())]
+                [self.__visit_fn(v.popleft()) for v in reversed(deques)]
 
 
     def __visit_counter_clockwise(self, deques):
@@ -38,11 +38,11 @@ class DequeVisitor(object):
         :param deques: A deque of deques that is a duplicate of the matrix
         """
         while len(deques) and len(deques[0]):
-            [self._visit_fn(v.popleft()) for v in deques]
-            [self._visit_fn(i) for i in deques.pop()]
+            [self.__visit_fn(v.popleft()) for v in deques]
+            [self.__visit_fn(i) for i in deques.pop()]
 
             if len(deques) and len(deques[0]):
-                [self._visit_fn(v.pop()) for v in reversed(deques)]
-                [self._visit_fn(i) for i in reversed(deques.popleft())]
+                [self.__visit_fn(v.pop()) for v in reversed(deques)]
+                [self.__visit_fn(i) for i in reversed(deques.popleft())]
 
 

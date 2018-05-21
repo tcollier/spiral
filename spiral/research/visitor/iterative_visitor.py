@@ -11,7 +11,7 @@ from spiral.research.visit_tracker import VisitTracker
 
 class IterativeVisitor(object):
     def __init__(self, visit_fn):
-        self._visit_fn = visit_fn
+        self.__visit_fn = visit_fn
 
     def start(self, matrix, clockwise):
         initial_direction = Direction.RIGHT if clockwise else Direction.DOWN
@@ -25,7 +25,7 @@ class IterativeVisitor(object):
         # We know a priori that we want to visit each element in the matrix
         # exactly once, so we can iterate `num_elements` times
         for _ in range(num_elements):
-            self._visit_fn(matrix[location.i][location.j])
+            self.__visit_fn(matrix[location.i][location.j])
             visit_tracker.visit(location)
 
             forward_location = compass.direction(location)
