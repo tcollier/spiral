@@ -13,12 +13,10 @@ class MarginVisitor(object):
         self.__visit_fn = visit_fn
 
     def start(self, matrix, clockwise):
-        if clockwise:
-            self.__visit_clockwise(matrix)
-        else:
-            self.__visit_counter_clockwise(matrix)
+        traverse_fn = (self.__cw if clockwise else self.__ccw)
+        traverse_fn(matrix)
 
-    def __visit_clockwise(self, matrix):
+    def __cw(self, matrix):
         location = Location(0, -1)
         smaller_dim = min(len(matrix), len(matrix[0]))
         max_margin = int(ceil(smaller_dim / 2))
@@ -41,7 +39,7 @@ class MarginVisitor(object):
                     location = self.__visit_line(
                         matrix, location, Direction.UP, visitable_height - 2)
 
-    def __visit_counter_clockwise(self, matrix):
+    def __ccw(self, matrix):
         location = Location(-1, 0)
         smaller_dim = min(len(matrix), len(matrix[0]))
         max_margin = int(ceil(smaller_dim / 2))

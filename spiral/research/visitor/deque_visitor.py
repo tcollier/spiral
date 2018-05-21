@@ -15,12 +15,10 @@ class DequeVisitor(object):
         # us to destructively modify the duplicate without affecting the input
         deques = deque([deque(vector) for vector in matrix])
 
-        if clockwise:
-            self.__visit_clockwise(deques)
-        else:
-            self.__visit_counter_clockwise(deques)
+        traverse_fn = (self.__cw if clockwise else self.__ccw)
+        traverse_fn(deques)
 
-    def __visit_clockwise(self, deques):
+    def __cw(self, deques):
         """
         :param deques: A deque of deques that is a duplicate of the matrix
         """
@@ -32,8 +30,7 @@ class DequeVisitor(object):
                 [self.__visit_fn(i) for i in reversed(deques.pop())]
                 [self.__visit_fn(v.popleft()) for v in reversed(deques)]
 
-
-    def __visit_counter_clockwise(self, deques):
+    def __ccw(self, deques):
         """
         :param deques: A deque of deques that is a duplicate of the matrix
         """
