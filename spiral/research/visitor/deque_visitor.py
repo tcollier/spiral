@@ -22,14 +22,14 @@ class DequeVisitor(object):
         """
         :param deques: A deque of deques that is a duplicate of the matrix
         """
-        while len(deques) and len(deques[0]):
+        while any(deques):
             # Traverse right on the top of the remaining deque
             [self.__visit_fn(i) for i in deques.popleft()]
 
             # Traverse down on the right side of the remaining deque
             [self.__visit_fn(v.pop()) for v in deques]
 
-            if len(deques) and len(deques[0]):
+            if any(deques):
                 # Traverse left on the bottom of the remaining deque
                 [self.__visit_fn(i) for i in reversed(deques.pop())]
 
@@ -40,14 +40,14 @@ class DequeVisitor(object):
         """
         :param deques: A deque of deques that is a duplicate of the matrix
         """
-        while len(deques) and len(deques[0]):
+        while any(deques):
             # Traverse down on the left side of the remaining deque
             [self.__visit_fn(v.popleft()) for v in deques]
 
             # Traverse right on the bottom of the remaining deque
             [self.__visit_fn(i) for i in deques.pop()]
 
-            if len(deques) and len(deques[0]):
+            if any(deques):
                 # Traverse up on the right side of the remaining deque
                 [self.__visit_fn(v.pop()) for v in reversed(deques)]
 

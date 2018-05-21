@@ -17,7 +17,7 @@ class SpiralMatrix(object):
         # us to destructively modify the duplicate without affecting the input
         deques = deque([deque(vector) for vector in self.__matrix])
 
-        while len(deques) and len(deques[0]):
+        while any(deques):
             if self.__clockwise:
                 # Traverse right on the top of the remaining deque
                 for item in deques.popleft():
@@ -27,7 +27,7 @@ class SpiralMatrix(object):
                 for vector in deques:
                     yield vector.pop()
 
-                if len(deques) and len(deques[0]):
+                if any(deques):
                     # Traverse left on the bottom side of the remaining deque
                     for item in reversed(deques.pop()):
                         yield item
@@ -44,7 +44,7 @@ class SpiralMatrix(object):
                 for item in deques.pop():
                     yield item
 
-                if len(deques) and len(deques[0]):
+                if any(deques):
                     # Traverse up on the right side of the remaining deque
                     for vector in reversed(deques):
                         yield vector.pop()
