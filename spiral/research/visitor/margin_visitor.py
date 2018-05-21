@@ -21,7 +21,7 @@ class MarginVisitor(object):
     def __visit_clockwise(self, matrix):
         location = Location(0, -1)
         smaller_dim = min(len(matrix), len(matrix[0]))
-        max_margin = ceil(smaller_dim / 2)
+        max_margin = int(ceil(smaller_dim / 2))
 
         for margin in range(max_margin):
             visitable_width = len(matrix[0]) - 2 * margin
@@ -44,7 +44,7 @@ class MarginVisitor(object):
     def __visit_counter_clockwise(self, matrix):
         location = Location(-1, 0)
         smaller_dim = min(len(matrix), len(matrix[0]))
-        max_margin = ceil(smaller_dim / 2)
+        max_margin = int(ceil(smaller_dim / 2))
 
         for margin in range(max_margin):
             visitable_width = len(matrix[0]) - 2 * margin
