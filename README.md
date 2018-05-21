@@ -4,6 +4,16 @@
 
 Iterate over a 2-D matrix in a spiral path, e.g.
 
+## Usage
+
+### Installation
+
+```bash
+pipenv install tcollier-spiral
+```
+
+### Example
+
 ```python
 from spiral.spiral_matrix import SpiralMatrix
 
