@@ -1,7 +1,7 @@
 from unittest import TestCase
-from spiral.visitor.deque_visitor import DequeVisitor
-from spiral.traverser import Traverser
-from ..test_traverser import TestTraverser
+from spiral.research.visitor.deque_visitor import DequeVisitor
+from spiral.research.traverser import Traverser
+from tests.research.test_traverser import TestTraverser
 
 
 class TestDequeVisitor(TestTraverser.Shared, TestCase):

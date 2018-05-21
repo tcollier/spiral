@@ -1,6 +1,6 @@
 from unittest import TestCase
-from spiral.compass import Compass
-from spiral.direction import Direction
+from spiral.research.compass import Compass
+from spiral.research.direction import Direction
 
 
 class TestCompass(TestCase):

@@ -1,7 +1,7 @@
 from unittest import TestCase
-from spiral.visitor.margin_visitor import MarginVisitor
-from spiral.traverser import Traverser
-from ..test_traverser import TestTraverser
+from spiral.research.visitor.margin_visitor import MarginVisitor
+from spiral.research.traverser import Traverser
+from tests.research.test_traverser import TestTraverser
 
 
 class TestMarginVisitor(TestTraverser.Shared, TestCase):

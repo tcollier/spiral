@@ -1,6 +1,6 @@
 from unittest import TestCase
-from spiral.direction import Direction
-from spiral.location import Location
+from spiral.research.direction import Direction
+from spiral.research.location import Location
 
 
 class TestDirection(TestCase):
