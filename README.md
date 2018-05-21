@@ -2,34 +2,32 @@
 
 # Spiral Matrix Traversal
 
-Several different implementations of algorithms to traverse a matrix in a
-clockwise or counter-clockwise path
+Iterate over a 2-D matrix in a spiral path, e.g.
 
-## Algorithms
+```python
+from spiral.spiral_matrix import SpiralMatrix
 
-Each algorithm is implemented as a visitor class, that applies a visit function
-to each element as it is visited.
+matrix = SpiralMatrix([
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12]])
 
-### Dequeue Visitor
+for item in matrix:
+    print(item)
+# 1
+# 2
+# 3
+# 4
+# 8
+# 12
+# 11
+# 10
+# 9
+# 5
+# 6
+# 7
+```
 
-Visit each element of a matrix in a spiral path using a deque of deques. The
-initial deque is a duplicate of the matrix, but is destructively consumed as it
-it traversed.
+# Misc
 
-### Iterative Visitor
-
-Visit each element of a matrix in a spiral path using an iterative approach.
-This algorithm keeps track of which elements have already been visited to ensure
-that no element is visited twice.
-
-### Margin Visitor
-
-Visit each element of a matrix in a spiral path by keeping track of an
-increasing "margin". Each time we traverse one rotation in the spiral, the
-margin on all sides increases by one.
-
-### Recursive Visitor
-
-Visit each element of a matrix in a spiral path using a recursive approach.
-This algorithm keeps track of which elements have already been visited to ensure
-that no element is visited twice.
+[See research documentation](docs/research.md)

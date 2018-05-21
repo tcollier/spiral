@@ -3,7 +3,7 @@ Enumerate lambdas for moving a location by one item for each of the four
 possible directions.
 """
 from enum import Enum
-from .location import Location
+from spiral.research.location import Location
 
 
 class Direction(Enum):
