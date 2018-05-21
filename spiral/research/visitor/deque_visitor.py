@@ -41,5 +41,3 @@ class DequeVisitor(object):
             if len(deques) and len(deques[0]):
                 [self.__visit_fn(v.pop()) for v in reversed(deques)]
                 [self.__visit_fn(i) for i in reversed(deques.popleft())]
-
-
