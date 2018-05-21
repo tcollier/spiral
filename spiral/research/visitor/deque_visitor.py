@@ -29,8 +29,7 @@ class DequeVisitor(object):
                 self._visit_fn(item)
 
             for vector in deques:
-                if len(vector):
-                    self._visit_fn(vector.pop())
+                self._visit_fn(vector.pop())
 
             if len(deques):
                 for item in reversed(deques.pop()):
@@ -46,8 +45,7 @@ class DequeVisitor(object):
         """
         while len(deques) and len(deques[0]):
             for vector in deques:
-                if len(vector):
-                    self._visit_fn(vector.popleft())
+                self._visit_fn(vector.popleft())
 
             for item in deques.pop():
                 self._visit_fn(item)
