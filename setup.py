@@ -4,7 +4,7 @@ from spiral.version import VERSION
 
 def do_setup():
     setup(
-      name='spiral',
+      name='tcollier-spiral',
       packages=['spiral'],
       version=VERSION,
       description='Iterate over a 2-D matrix in a spiral manner',
