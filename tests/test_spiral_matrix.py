@@ -97,6 +97,25 @@ class TestSpiralMatrix(TestCase):
         self.assertEqual(
             [1, 5, 9, 10, 11, 12, 8, 4, 3, 2, 6, 7], actual)
 
+    def test_traverse_wide_rectangle_outward(self):
+        matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12]]
+        actual = [i for i in SpiralMatrix(matrix, inward=False)]
+        self.assertEqual(
+            [7, 6, 2, 3, 4, 8, 12, 11, 12, 9, 5, 1], actual)
+
+    def test_traverse_wide_rectangle_outward_ccw(self):
+        matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12]]
+        actual = [
+            i for i in SpiralMatrix(matrix, clockwise=False, inward=False)]
+        self.assertEqual(
+            [[7, 6, 5, 9, 10, 11, 12, 8, 4, 3, 2, 1]], actual)
+
     def test_traverse_tall_rectangle(self):
         matrix = [
             [1, 2, 3],
